@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>proposal</title>
+    <style>
+        body {
+            background: url("{% static 'images/love.png' %}") no-repeat center center fixed;
+            background-size: cover;
+            background-color: #f7d5e3;
+        }
+
+        .button-container {
+            text-align: center;
+            position: relative;
+            width: 800px;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .button-container a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            font-size: 16px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            position: absolute;
+        }
+
+        #button {
+            .button-container {
+                text-align: center;
+                position: relative;
+                width: 800px;
+                height: 400px;
+                overflow: hidden;
+            }
+        }
+    </style>
+
+    <script>
+        function moveButton(event) {
+            var button = document.getElementById("moveButton");
+            var buttonRect = button.getBoundingClientRect();
+            var mouseX = event.clientX;
+            var mouseY = event.clientY;
+
+            if (
+                mouseX >= buttonRect.left &&
+                mouseX <= buttonRect.right &&
+                mouseY >= buttonRect.top &&
+                mouseY <= buttonRect.bottom
+            ) {
+                var maxButtonX = 800 - buttonRect.width;
+                var maxButtonY = 400 - buttonRect.height;
+
+                var randomX = Math.floor(Math.random() * maxButtonX);
+                var randomY = Math.floor(Math.random() * maxButtonY);
+
+                button.style.left = randomX + "px";
+                button.style.top = randomY + "px";
+            }
+        }
+
+        window.onload = function() {
+            var button = document.getElementById("moveButton");
+            button.addEventListener("mousemove", moveButton);
+        };
+    </script>
+</head>
+<body>
+<center>
+<br><br><br><br><br><br><br>
+<h1>Will You Be My Valentine ❤️</h1>
+<br>
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="{% url 'proposeapp:mylove' %}" style="background-color: green; color: white; padding: 10px 17px; font-size: 16px; text-decoration: none; border: none;">YES😍</a>
+
+<br><br><br>
+<div class="button-container">
+    <a href="" id="moveButton">NO☹️</a>
+</div>
+</center>
+</body>
+</html>
+
+
+

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Love</title>
+    <style>
+        body {
+            background: url("path/to/sparkle-background.jpg") no-repeat center center fixed;
+            background-size: cover;
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        h2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: Arial, sans-serif;
+            font-size: 36px;
+            color: #fff;
+            text-align: center;
+            animation: sparkle 2s linear infinite;
+        }
+
+        .heart {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            font-size: 40px;
+            animation: pop 2s linear infinite;
+        }
+
+        @keyframes sparkle {
+            0% {
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.8), 0 0 15px rgba(255, 255, 255, 0.8);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.8);
+            }
+             100% {
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.8), 0 0 15px rgba(255, 255, 255, 0.8);
+            }
+        }
+
+        @keyframes pop {
+            0% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h2>
+            I KNEW IT 🥰<br><br>
+            I LOVE YOU TOO 😍
+        </h2>
+    </center>
+    <script>
+        function createHeart() {
+            const colors = ["red", "pink", "purple", "blue", "green"];
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "&hearts;";
+            heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.top = Math.random() * window.innerHeight + "px";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 2000);
+        }
+
+        setInterval(createHeart, 200);
+        setInterval(createHeart, 300);
+        setInterval(createHeart, 400);
+        setInterval(createHeart, 500);
+        setInterval(createHeart, 600);
+        setInterval(createHeart, 700);
+    </script>
+</body>
+</html>
